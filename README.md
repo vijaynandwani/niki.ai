@@ -24,9 +24,7 @@ To generate documents:
 
 ## TODO
 
-1. Add Sphinx Documentation
-2. Add Tests
-3. Add Code in more languages
+1. Add Code in more languages
 
 ## License
 
