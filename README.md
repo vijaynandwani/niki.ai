@@ -3,10 +3,14 @@
 Objective: Given a directory containing only text files, recursively traverse the entire directory and print all the telephone numbers(base 10-digit  format Indian mobile numbers and its variations) - can use bash
 scripting, python, java, C - or any other language.
 
+Solution: The current repository contains the solution in Python and shell script.
+
 ## Usage
 
 To run the program with given sample csv files:
 `python phone.py`
+
+To run the shell script `.\phone.sh`
 
 To run the tests:
 `python -m unittest discover tests -v`
