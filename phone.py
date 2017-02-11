@@ -15,7 +15,10 @@ def main(rootPath, fileExtension, numberRegex):
     :param rootPath: The root path where we should start the search from. 
     :param fileExtension: File extension which should be searched.
     :param numberRegex: Regex of the number which should be searched
+    :return indianNumberList: List of Indian phone numbers
+    :rtype: list.
     """
+    indianNumberList = []
     for root, dirs, files in os.walk(rootPath):
         for filename in fnmatch.filter(files, fileExtension):
             fname = os.path.join(root, filename)
@@ -25,12 +28,15 @@ def main(rootPath, fileExtension, numberRegex):
                 reader = csv.reader(file)
                 for row in reader:
                     if re.search(numberRegex, row[0]):
-                        print row[0]
+                        indianNumberList.append(row[0])
             finally:
                 file.close()
+    return indianNumberList
 
 if __name__ == '__main__':
     rootPath = '.'
     fileExtension = '*.csv'
     numberRegex = r"[789]\d{9}"
-    main(rootPath, fileExtension, numberRegex)
+    indianNumberList = main(rootPath, fileExtension, numberRegex)
+    for number in indianNumberList:
+        print number

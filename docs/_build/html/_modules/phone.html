@@ -59,7 +59,10 @@
 <span class="sd">    :param rootPath: The root path where we should start the search from. </span>
 <span class="sd">    :param fileExtension: File extension which should be searched.</span>
 <span class="sd">    :param numberRegex: Regex of the number which should be searched</span>
+<span class="sd">    :return indianNumberList: List of Indian phone numbers</span>
+<span class="sd">    :rtype: list.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">indianNumberList</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">rootPath</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">fileExtension</span><span class="p">):</span>
             <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
@@ -69,15 +72,18 @@
                 <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
                 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">numberRegex</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-                        <span class="nb">print</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="n">indianNumberList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="k">finally</span><span class="p">:</span>
-                <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+                <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">indianNumberList</span></div>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">rootPath</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
     <span class="n">fileExtension</span> <span class="o">=</span> <span class="s1">&#39;*.csv&#39;</span>
     <span class="n">numberRegex</span> <span class="o">=</span> <span class="s2">r&quot;[789]\d</span><span class="si">{9}</span><span class="s2">&quot;</span>
-    <span class="n">main</span><span class="p">(</span><span class="n">rootPath</span><span class="p">,</span> <span class="n">fileExtension</span><span class="p">,</span> <span class="n">numberRegex</span><span class="p">)</span>
+    <span class="n">indianNumberList</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">rootPath</span><span class="p">,</span> <span class="n">fileExtension</span><span class="p">,</span> <span class="n">numberRegex</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">indianNumberList</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="n">number</span>
 </pre></div>
 
           </div>

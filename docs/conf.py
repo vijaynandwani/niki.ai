@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # niki.ai documentation build configuration file, created by
-# sphinx-quickstart on Sat Feb 11 10:59:42 2017.
+# sphinx-quickstart on Sat Feb 11 12:40:23 2017.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.

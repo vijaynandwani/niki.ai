@@ -5,7 +5,14 @@ scripting, python, java, C - or any other language.
 
 ## Usage
 
+To run the program with given sample csv files:
 `python phone.py`
+
+To run the tests:
+`python -m unittest discover tests -v`
+
+To generate documents:
+`sphinx-apidoc -F -o docs .`
 
 ## Contributing
 
