@@ -18,6 +18,10 @@ To run the tests:
 To generate documents:
 `sphinx-apidoc -F -o docs .`
 
+## Assumption
+
+I am assuming that all the data is in CSV files which contain just the phone column.
+
 ## Contributing
 
 1. Fork it!
